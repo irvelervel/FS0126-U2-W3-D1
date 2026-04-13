@@ -61,3 +61,55 @@ p1.age = 50
 // assegnare ad ogni istanza i VALORI delle proprietà, quindi devo dire che il firstName di p1 è "Matteo",
 // che il lastName di p1 è "Palvini", che le sue skills siano array vuoto etc.
 // come faccio ad ottimizzare questo processo?
+
+// Un modo più strutturato per creare le istanze senza dopo aver bisogno manualmente di andare a riempire
+// ogni singola proprietà con un valore è quello di utilizzare nella funzione costruttore dei PARAMETRI:
+
+// creo ora un'altra funzione costruttore in cui prevedo l'arrivo di diversi parametri
+const NamedPerson = function (
+  _firstName,
+  _lastName,
+  _age,
+  _skills,
+  _country,
+  _phone,
+  _email = '',
+) {
+  this.firstName = _firstName
+  this.lastName = _lastName
+  this.age = _age
+  this.skills = _skills
+  this.country = _country
+  this.phone = _phone
+  this.email = _email
+  this.greet = function () {
+    return `Ciao, io mi chiamo ${this.firstName} ${this.lastName} e mi piace ${this.skills[0]}`
+  }
+}
+
+const np1 = new NamedPerson(
+  'Marzio',
+  'Durango',
+  39,
+  ['writing'],
+  'Argentina',
+  '+49283483',
+  'mario.durango@gmail.com',
+)
+
+const np2 = new NamedPerson(
+  'Scaloppina',
+  'Fedrighi',
+  25,
+  ['reading'],
+  'Italy',
+  '+23423423',
+  'scaloppina.fedrighi@aol.com',
+)
+
+// questa capacità di JS di creare le funzioni costruttore è insita nel linguaggio dall'alba dei tempi
+// a partire da ES6, proprio per abbracciare tutti i nuovi sviluppatori web che sono saltati a bordo
+// di JS per il successo delle web app (magari da linguaggi OOP), è stata introdurre la parola chiave "class"
+
+// quindi muoviamoci sul file class.js per capire oggi quale sia la sintassi più usata per creare queste
+// "fabbriche di oggetti" anche in JS
