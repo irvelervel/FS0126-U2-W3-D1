@@ -67,6 +67,7 @@ class Developer extends NamedPerson {
     _email,
     _programmingLanguages,
     _yoe,
+    _currentCompany,
   ) {
     // i primi 7 parametri di Developer in realtà fanno parte già del constructor di NamedPerson,
     // dove vengono create 7 proprietà a partire da ciascuno di essi. Devo -riscriverle- anche in Developer?
@@ -79,6 +80,17 @@ class Developer extends NamedPerson {
 
     this.programmingLanguages = _programmingLanguages
     this.yoe = _yoe
+    this.currentCompany = _currentCompany
+
+    // voglio creare un METODO dentro la classe Developer che confronti la proprio currentCompany
+    // con quella di un altro Developer per capire se i due lavorano assieme!
+  }
+  areWeWorkingTogether = function (otherDev) {
+    if (this.currentCompany === otherDev.currentCompany) {
+      console.log('Siamo colleghi!')
+    } else {
+      console.log('NON siamo colleghi!')
+    }
   }
 }
 
@@ -92,6 +104,35 @@ const dev1 = new Developer(
   'antonello@venditti.com',
   ['Python'],
   10,
+  'Meta',
 )
 
-console.log('DEV1', dev1)
+const dev2 = new Developer(
+  'Claudio',
+  'Baglioni',
+  104,
+  ['singing'],
+  'Italy',
+  '+3934882334',
+  'claudiobaglioni@siae.it',
+  ['Kotlin'],
+  6,
+  'Google',
+)
+
+dev1.areWeWorkingTogether(dev2)
+
+const dev3 = new Developer(
+  'Franco',
+  'Califano',
+  120,
+  ['singing'],
+  'Italy',
+  '+392342343',
+  'francocalifano@rai.it',
+  ['Swift'],
+  20,
+  'Google',
+)
+
+dev2.areWeWorkingTogether(dev3)
