@@ -51,3 +51,8 @@ const divano3 = {
 
 // quindi, come risolviamo questo problema in JS? come possiamo creare anche in JS un modo STRUTTURATO
 // per creare gli oggetti, in modo da non dover ricorrere a copincolla, modifiche retroattive, etc.?
+
+// JS possiede fin dagli albori una struttura in grado di creare "in serie" degli oggetti dotati
+// di caratterstiche simili -> FUNZIONE COSTRUTTORE
+
+// -> andiamo su constructor.js
